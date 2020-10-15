@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Upload an image</h1>
+        <!--<input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)"><br><br>-->
+        <input type="file"  accept="image/*" name="image" id="file"><br><br>
+        <button onclick="loadFile(event)">Show</button>
+<p><img id="photo" width="400" /></p>
+
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
+
+  <script>
+      var firebaseConfig = {
+            apiKey: "AIzaSyAckAS7Fn858QdmoR08eQZXM9W3ePeFDPQ",
+            authDomain: "gocorona-84a11.firebaseapp.com",
+            databaseURL: "https://gocorona-84a11.firebaseio.com",
+            projectId: "gocorona-84a11",
+            storageBucket: "gocorona-84a11.appspot.com",
+            messagingSenderId: "416138584360",
+            appId: "1:416138584360:web:8e3d19bcfc640716ca301d",
+            measurementId: "G-59WNFHS6TH"
+          };
+          // Initialize Firebase
+          firebase.initializeApp(firebaseConfig);
+    console.log(firebase);
+
+var loadFile = function(event) {
+	var image = document.getElementById('photo');
+	image.src = URL.createObjectURL(event.target.files[0]);
+    console.log(image.src);
+};
+</script>
+    </body>
+    
+</html>
