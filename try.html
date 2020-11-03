@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+            
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+    <body>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB59biox2636O9D6C5_28ikalpCNLSQM_0",
+    authDomain: "image-and-pdf-1479a.firebaseapp.com",
+    databaseURL: "https://image-and-pdf-1479a.firebaseio.com",
+    projectId: "image-and-pdf-1479a",
+    storageBucket: "image-and-pdf-1479a.appspot.com",
+    messagingSenderId: "245554748712",
+    appId: "1:245554748712:web:9e36a28fbf07372f87841d"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const storageService = firebase.storage();
+    const storageRef = storageService.ref();
+    document.querySelector('.file-select').addEventListener('change', handleFileUploadChange);
+document.querySelector('.file-submit').addEventListener('click', handleFileUploadSubmit);
+let selectedFile;
+handleFileUploadChange(e) {
+  selectedFile = e.target.files[0];
+}
+handleFileUploadSubmit(e) {
+  const uploadTask = storageRef.child(`images/${selectedFile.name}`).put(selectedFile); //create a child directory called images, and place the file inside this directory
+  uploadTask.on('state_changed', (snapshot) => {
+  // Observe state change events such as progress, pause, and resume
+  }, (error) => {
+    // Handle unsuccessful uploads
+    console.log(error);
+  }, () => {
+     // Do something once upload is complete
+     console.log('success');
+  });
+}
+</script>
+            
+<script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+        <div id="filesubmit">
+            Name:
+            <input type="text"/> 
+            <input type="file" class="file-select" accept="image/*"/>
+            <button class="file-submit">SUBMIT</button>
+          </div> 
+    </body>
+</html>

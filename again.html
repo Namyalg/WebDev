@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Select to upload a file</h1>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-storage.js"></script>
+        <script>
+                 var firebaseConfig = {
+        apiKey: "AIzaSyB59biox2636O9D6C5_28ikalpCNLSQM_0",
+        authDomain: "image-and-pdf-1479a.firebaseapp.com",
+        databaseURL: "https://image-and-pdf-1479a.firebaseio.com",
+        projectId: "image-and-pdf-1479a",
+        storageBucket: "image-and-pdf-1479a.appspot.com",
+        messagingSenderId: "245554748712",
+        appId: "1:245554748712:web:9e36a28fbf07372f87841d"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+//function to save file
+function uploadFile(){
+      
+      // Created a Storage Reference with root dir
+      var storageRef = firebase.storage().ref();
+      // Get the file from DOM
+      var file = document.getElementById("files").files[0];
+      console.log(file);
+      
+      //dynamically set reference to the file name
+      var thisRef = storageRef.child(file.name);
+
+      //put request upload file to firebase storage
+      thisRef.put(file).then(function(snapshot) {
+         alert("File Uploaded")
+         console.log('Uploaded a blob or file!');
+      });
+    }
+        </script>
+        <input type="file" id="files" name="files[]" multiple />    
+        <button onclick="uploadFile()">Upload a file</button>
+    </body>
+</html>
