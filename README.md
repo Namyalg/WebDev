@@ -1,7 +1,8 @@
 # WebDev
 - This repository contains the implementations of some backend development concepts.
 - The code is written in Javascript
-**Done in firebase**
+
+- **Performed entirely on Firebase**
 - Simple login/sign-up with authentication
 - Store and retrieve cookies
 - Store and retrieve files 
