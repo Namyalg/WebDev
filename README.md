@@ -3,8 +3,7 @@ This repository contains the implementations of some backend development concept
 **Done in firebase**
 - Simple login/sign-up with authentication
 - Store and retrieve cookies
-- Store and retrive files 
-
+- Store and retrieve files 
 
 (https://education.github.com/pack/offers?utm_source=welcome-email&utm_medium=email&utm_campaign=sdp-onboarding&utm_content=em1)
 
